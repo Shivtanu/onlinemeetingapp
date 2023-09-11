@@ -45,7 +45,8 @@ class _HomepageState extends State<Homepage> {
           IconButton(
             iconSize: MediaQuery.of(context).size.width * 0.08,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Login()));
             },
             icon: const Icon(
               Icons.person,
@@ -95,55 +96,54 @@ class _HomepageState extends State<Homepage> {
                   // style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      color: Color.fromARGB(255, 158, 225, 199),
+              SingleChildScrollView(
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.27,
+                  padding: const EdgeInsets.only(
+                      left: 10, right: 10, top: 10, bottom: 5),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
                     ),
-                    child: ListView.builder(
-                      itemCount: upcomingMeetings.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final meeting = upcomingMeetings[index];
-                        return Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                MediaQuery.of(context).size.height * 0.6),
+                    color: Color.fromARGB(255, 158, 225, 199),
+                  ),
+                  child: ListView.builder(
+                    itemCount: upcomingMeetings.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final meeting = upcomingMeetings[index];
+                      return Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              MediaQuery.of(context).size.height * 0.6),
+                        ),
+                        elevation: 10.0,
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 5.0, vertical: 8.0),
+                        child: ListTile(
+                          title: Text(meeting.title),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('DATE: ${meeting.date}'),
+                              Text('Time: ${meeting.time}'),
+                            ],
                           ),
-                          elevation: 10.0,
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 5.0, vertical: 8.0),
-                          child: ListTile(
-                            title: Text(meeting.title),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('DATE: ${meeting.date}'),
-                                Text('Time: ${meeting.time}'),
-                              ],
-                            ),
-                            trailing: InkWell(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.arrow_forward,
-                                size: MediaQuery.of(context).size.width * 0.06,
-                              ),
+                          trailing: InkWell(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.arrow_forward,
+                              size: MediaQuery.of(context).size.width * 0.06,
                             ),
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
-              // SizedBox(
-              //   height: 20,
-              // ),
+              SizedBox(
+                height: 20,
+              ),
               const Align(
                 alignment: Alignment.topLeft,
                 child: Text(
@@ -154,8 +154,9 @@ class _HomepageState extends State<Homepage> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    padding: const EdgeInsets.all(10),
+                    height: MediaQuery.of(context).size.height * 0.27,
+                    padding: const EdgeInsets.only(
+                        left: 10, right: 10, top: 10, bottom: 5),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -205,4 +206,3 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
-
